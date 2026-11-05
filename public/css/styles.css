@@ -162,7 +162,8 @@ img {
   background: linear-gradient(135deg, var(--orange) 0%, var(--orange) 50%, var(--ink) 50%, var(--ink) 100%);
 }
 
-.nav-links {
+.nav-links,
+.mobile--menu {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -172,14 +173,76 @@ img {
   padding: 0;
 }
 
-.nav-links a {
+.nav-links a,
+.mobile--menu a {
   color: var(--ink);
   text-decoration: none;
 }
 
 .nav-links a:hover,
-.nav-links a[aria-current='page'] {
+.nav-links a[aria-current='page'],
+.mobile--menu a:hover,
+.mobile--menu a[aria-current='page'] {
   color: var(--orange-dark);
+}
+
+.mobile--menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger--menu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  width: 40px;  
+}
+
+.burger--menu span:hover {
+  background-color: #c4521f;
+}
+
+.burger--menu span {
+  width: 100%;
+  height: 4px;
+  background-color: #e2672f;
+  border-radius: 2px;
+}
+
+.back_drop {
+  position: absolute;
+  background-color: #242424;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease;
+}
+
+.menu--open .back_drop {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu--open {
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
+.mobile--menu {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .site-header--home {
@@ -188,7 +251,8 @@ img {
 }
 
 .site-header--home .logo,
-.site-header--home .nav-links a {
+.site-header--home .nav-links a,
+.site-header--home .mobile--menu a {
   color: var(--white);
 }
 
@@ -223,7 +287,8 @@ img {
   flex-shrink: 0;
 }
 
-.site-header--home .nav-links .btn {
+.site-header--home .nav-links .btn,
+.site-header--home .mobile--menu .btn {
   margin-left: 12px;
   padding: 10px 20px;
 }
@@ -755,8 +820,18 @@ img {
     width: 100%;
     max-width: 600px;
   }
-
 }
+
+
+@media (max-width: 950px) {
+  .main-links {
+    display: none;
+  }
+  .burger--menu {
+    display: flex;
+  }
+}
+
 
 @media (max-width: 768px) {
   h1 {
@@ -782,7 +857,7 @@ img {
   }
 
   .playbook-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .card-grid {
