@@ -258,7 +258,7 @@ img {
 }
 
 .hero-media {
-  width: 600px;
+  width: 60%;
   flex-shrink: 0;
 }
 
@@ -744,6 +744,18 @@ img {
   border-top: 1px solid #3a322d;
   margin-top: 48px;
   padding-top: 24px;
+}
+
+@media (max-width: 1024px) {
+  .hero-inner {
+    flex-direction: column-reverse;
+  }
+
+  .hero-media {
+    width: 100%;
+    max-width: 600px;
+  }
+
 }
 
 @media (max-width: 768px) {
