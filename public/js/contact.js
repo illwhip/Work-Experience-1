@@ -1,15 +1,13 @@
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
-
+const honeyPot = document.getElementById('location')
+var loadTime = new Date().getSeconds()
 
 form.addEventListener('submit', async (event) => {
-  var submissionTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-  var loadTime = request.FormTime;
-  var elapsed = submissionTime - loadTime
+  var submissionTime = new Date().getSeconds()  
+  var elapsedTime = submissionTime - loadTime
   
-  console.log(elapsed)
-
-  if (elapsed < 3) {
+  if (elapsedTime < 3) {
     logger.LogWarning(`Form Submitted to quickly from ${IP}`, HttpContext.Connection.RemoteIpAddress);
     return (
           form.reset(),
@@ -18,7 +16,7 @@ form.addEventListener('submit', async (event) => {
         )
   }
 
-  if (!string.IsNullOrEmpty(request.Location)) {
+  if (honeyPot.value !== "") {
         logger.LogWarning(`Honeypot triggered from ${IP}`, HttpContext.Connection.RemoteIpAddress);
         return (
           form.reset(),
