@@ -779,10 +779,10 @@ img {
 }
 
 .form__alt {
-  /* position: absolute; */
-  /* left: -9999px; */
-  width: 100px;
-  height: 100px;
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
 }
 

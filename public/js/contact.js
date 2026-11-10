@@ -4,58 +4,58 @@ const honeyPot = document.getElementById('location')
 var loadTime = new Date().getSeconds()
 
 form.addEventListener('submit', async (event) => {
-  var submissionTime = new Date().getSeconds()  
-  var elapsedTime = submissionTime - loadTime
-  
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  statusEl.textContent = '';
+  statusEl.className = 'form-status';
+  var submissionTime = new Date().getSeconds();  
+  var elapsedTime = submissionTime - loadTime;
+
+  event.preventDefault();
+
   if (elapsedTime < 3) {
-    logger.LogWarning(`Form Submitted to quickly from ${IP}`, HttpContext.Connection.RemoteIpAddress);
+    console.warn(`Form Submitted to quickly`)
     return (
-          form.reset(),
-          statusEl.textContent = "Thanks, we'll be in touch within one business day.",
-          statusEl.classList.add('form-status--success')
-        )
+      form.reset(),
+      statusEl.textContent = "Thanks, we'll be in touch within one business day.",
+      statusEl.classList.add('form-status--success'),
+      button.disabled = false
+    )
   }
 
   if (honeyPot.value !== "") {
-        logger.LogWarning(`Honeypot triggered from ${IP}`, HttpContext.Connection.RemoteIpAddress);
-        return (
-          form.reset(),
-          statusEl.textContent = "Thanks, we'll be in touch within one business day.",
-          statusEl.classList.add('form-status--success')
-        )
+    console.warn(`Honeypot triggered`)
+    return (
+      form.reset(),
+      statusEl.textContent = "Thanks, we'll be in touch within one business day.",
+      statusEl.classList.add('form-status--success'),
+      button.disabled = false
+    )
   }
 
-  // event.preventDefault();
+  const data = Object.fromEntries(new FormData(form));
 
-  // const button = form.querySelector('button[type="submit"]');
-  // button.disabled = true;
-  // statusEl.textContent = '';
-  // statusEl.className = 'form-status';
+  try {
+    const response = await fetch('/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const result = await response.json();
 
-  // const data = Object.fromEntries(new FormData(form));
+    if (!result.ok) {
+      throw new Error(result.error || 'Something went wrong.');
+    }
 
-
-  // // try {
-  //   const response = await fetch('/contact', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(data),
-  //   });
-  //   const result = await response.json();
-
-  //   if (!result.ok) {
-  //     throw new Error(result.error || 'Something went wrong.');
-//   //   }
-
-//     form.reset();
-//     statusEl.textContent = "Thanks, we'll be in touch within one business day.";
-//     statusEl.classList.add('form-status--success');
-//   } catch (error) {
-//     statusEl.textContent = error.message || 'Something went wrong. Please email hello@calicomedia.co instead.';
-//     statusEl.classList.add('form-status--error');
-//   } finally {
-//     button.disabled = false;
-//   }
+    form.reset();
+    statusEl.textContent = "Thanks, we'll be in touch within one business day.";
+    statusEl.classList.add('form-status--success');
+  } catch (error) {
+    statusEl.textContent = error.message || 'Something went wrong. Please email hello@calicomedia.co instead.';
+    statusEl.classList.add('form-status--error');
+  } finally {
+    button.disabled = false;
+  }
 });
 
 
