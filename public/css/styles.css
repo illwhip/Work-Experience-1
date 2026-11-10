@@ -778,6 +778,14 @@ img {
   margin: 0;
 }
 
+.form__alt {
+  /* position: absolute; */
+  /* left: -9999px; */
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
 /* Footer */
 
 .site-footer {
