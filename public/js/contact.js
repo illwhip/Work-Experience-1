@@ -1,13 +1,37 @@
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
+const honeyPot = document.getElementById('location')
+var loadTime = new Date().getSeconds()
 
 form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-
   const button = form.querySelector('button[type="submit"]');
   button.disabled = true;
   statusEl.textContent = '';
   statusEl.className = 'form-status';
+  var submissionTime = new Date().getSeconds();  
+  var elapsedTime = submissionTime - loadTime;
+
+  event.preventDefault();
+
+  if (elapsedTime < 3) {
+    console.warn(`Form Submitted to quickly`)
+    return (
+      form.reset(),
+      statusEl.textContent = "Thanks, we'll be in touch within one business day.",
+      statusEl.classList.add('form-status--success'),
+      button.disabled = false
+    )
+  }
+
+  if (honeyPot.value !== "") {
+    console.warn(`Honeypot triggered`)
+    return (
+      form.reset(),
+      statusEl.textContent = "Thanks, we'll be in touch within one business day.",
+      statusEl.classList.add('form-status--success'),
+      button.disabled = false
+    )
+  }
 
   const data = Object.fromEntries(new FormData(form));
 
@@ -33,3 +57,5 @@ form.addEventListener('submit', async (event) => {
     button.disabled = false;
   }
 });
+
+

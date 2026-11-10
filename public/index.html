@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Calico Media | Growth planning for local businesses</title>
   <meta name="description" content="Calico helps local businesses grow their customer base with specific, measurable, realistic goals and a rapid growth plan you can run every week.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/menu.js"></script>
 </head>
 <body>
   <header class="site-header site-header--home">
-    <div class="container">
+    <div class="container nav-container">
       <a class="logo" href="index.html"><span class="logo-mark"></span>Calico Media</a>
       <nav aria-label="Main">
-        <ul class="nav-links">
+        <ul class="nav-links main-links">
           <li><a href="features.html">Features</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="#playbook">Growth playbook</a></li>
@@ -24,6 +22,23 @@
           <li><a href="https://app.calicomedia.co/login">Log in</a></li>
           <li><a class="btn" href="contact.html">Book a demo</a></li>
         </ul>
+        <div class="burger--menu" onclick="openMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="back_drop">
+        <ul class="mobile--menu">
+          <li><a href="#" onclick="closeMenu()">Home</a></li>
+          <li><a href="features.html" onclick="closeMenu()">Features</a></li>
+          <li><a href="pricing.html" onclick="closeMenu()">Pricing</a></li>
+          <li><a href="#playbook" onclick="closeMenu()">Growth playbook</a></li>
+          <li><a href="about.html" onclick="closeMenu()">About</a></li>
+          <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
+          <li><a href="https://app.calicomedia.co/login" onclick="closeMenu()">Log in</a></li>
+          <li><a class="btn" href="contact.html" onclick="closeMenu()">Book a demo</a></li>
+        </ul>
+      </div>
       </nav>
     </div>
   </header>
@@ -41,7 +56,12 @@
           </div>
         </div>
         <div class="hero-media">
-          <img class="hero-image" src="images/hero-weekly-plan.jpg" alt="A business owner at her desk with a laptop and an open planner">
+          <img 
+            class="hero-image" 
+            src="images/hero-weekly-plan.jpg" 
+            scrset="images/hero-weekly-plan-400.jpg 768w, images/hero-weekly-plan.jpg 1200w"
+            alt="A business owner at her desk with a laptop and an open planner"
+          >
         </div>
       </div>
     </section>
@@ -69,7 +89,12 @@
 
         <div class="feature-row">
           <div class="feature-media">
-            <img src="images/feature-goal-builder.jpg" alt="Growth charts on a laptop and phone beside a cup of tea">
+            <img 
+              loading="lazy" 
+              src="images/feature-goal-builder.jpg" 
+              scrset="images/feature-goal-builder-400.jpg 768w, images/feature-goal-builder.jpg 1200w"
+              alt="Growth charts on a laptop and phone beside a cup of tea"
+            >
           </div>
           <div>
             <h3>Goal builder</h3>
@@ -80,7 +105,12 @@
 
         <div class="feature-row feature-row--reverse">
           <div class="feature-media">
-            <img src="images/feature-growth-plan.jpg" alt="An open planner showing the weeks ahead">
+            <img 
+              loading="lazy" 
+              src="images/feature-growth-plan.jpg" 
+              srcset="images/feature-growth-plan-400.jpg 768w, images/feature-growth-plan.jpg 1200w"
+              alt="An open planner showing the weeks ahead"
+            >
           </div>
           <div>
             <h3>Rapid growth plans</h3>
@@ -91,7 +121,12 @@
 
         <div class="feature-row">
           <div class="feature-media">
-            <img src="images/feature-monday-checkin.jpg" alt="Checking a phone over coffee on a Monday morning">
+            <img 
+              loading="lazy" 
+              src="images/feature-monday-checkin.jpg" 
+              srcset="images/feature-monday-checkin-400.jpg 768w, images/feature-monday-checkin.jpg 1200w"
+              alt="Checking a phone over coffee on a Monday morning"
+            >
           </div>
           <div>
             <h3>Monday check-ins</h3>
@@ -111,7 +146,12 @@
         </div>
         <div class="playbook-grid">
           <article class="card">
-            <img src="images/playbook-reviews.jpg" alt="A customer typing a review on their phone">
+            <img 
+              loading="lazy" 
+              src="images/playbook-reviews.jpg"
+              srcset="images/playbook-reviews-400.jpg 768w, images/playbook-reviews.jpg 1200w" 
+              alt="A customer typing a review on their phone"
+            >
             <div class="card-body">
               <span class="card-tag">Reviews</span>
               <h3>Turn happy customers into new ones</h3>
@@ -119,7 +159,11 @@
             </div>
           </article>
           <article class="card">
-            <img src="images/playbook-referrals.jpg" alt="A group class stretching together in a yoga studio">
+            <img 
+              loading="lazy" 
+              src="images/playbook-referrals.jpg"
+              srcset="images/playbook-referrals-400.jpg 768w, images/playbook-referrals.jpg 1200w" 
+              alt="A group class stretching together in a yoga studio">
             <div class="card-body">
               <span class="card-tag">Referrals</span>
               <h3>Referral offers people actually use</h3>
@@ -127,7 +171,12 @@
             </div>
           </article>
           <article class="card">
-            <img src="images/playbook-rebooking.jpg" alt="A customer at the front desk booking her next visit">
+            <img 
+              loading="lazy" 
+              src="images/playbook-rebooking.jpg"
+              srcset="images/playbook-rebooking-400.jpg 768w, images/playbook-rebooking.jpg 1200w" 
+              alt="A customer at the front desk booking her next visit"
+            >
             <div class="card-body">
               <span class="card-tag">Retention</span>
               <h3>Win back the customers you already had</h3>
@@ -141,7 +190,12 @@
     <section class="section">
       <div class="container">
         <div class="cta-band">
-          <img src="images/team-workshop.jpg" alt="The Calico Media team planning around a whiteboard">
+          <img 
+            loading="lazy" 
+            src="images/team-workshop.jpg" 
+            srcset="images/team-workshop-400.jpg 768w, images/team-workshop.jpg 1200w"
+            alt="The Calico Media team planning around a whiteboard"
+          >
           <div class="cta-body">
             <h2>Set your first goal with us. It takes 45 minutes.</h2>
             <a class="btn" href="contact.html">Book a demo</a>
