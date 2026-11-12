@@ -9,13 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/menu.js"></script>
 </head>
 <body>
   <header class="site-header site-header--home">
-    <div class="container">
+    <div class="container nav-container">
       <a class="logo" href="index.html"><span class="logo-mark"></span>Calico Media</a>
       <nav aria-label="Main">
-        <ul class="nav-links">
+        <ul class="nav-links main-links">
           <li><a href="features.html">Features</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="#playbook">Growth playbook</a></li>
@@ -24,6 +25,23 @@
           <li><a href="https://app.calicomedia.co/login">Log in</a></li>
           <li><a class="btn" href="contact.html">Book a demo</a></li>
         </ul>
+        <div class="burger--menu" onclick="openMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="back_drop">
+        <ul class="mobile--menu">
+          <li><a href="#" onclick="closeMenu()">Home</a></li>
+          <li><a href="features.html" onclick="closeMenu()">Features</a></li>
+          <li><a href="pricing.html" onclick="closeMenu()">Pricing</a></li>
+          <li><a href="#playbook" onclick="closeMenu()">Growth playbook</a></li>
+          <li><a href="about.html" onclick="closeMenu()">About</a></li>
+          <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
+          <li><a href="https://app.calicomedia.co/login" onclick="closeMenu()">Log in</a></li>
+          <li><a class="btn" href="contact.html" onclick="closeMenu()">Book a demo</a></li>
+        </ul>
+      </div>
       </nav>
     </div>
   </header>
