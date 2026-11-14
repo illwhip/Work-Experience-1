@@ -1,19 +1,19 @@
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
 const honeyPot = document.getElementById('location')
-var loadTime = new Date().getSeconds()
+var loadTime = Date.now()
 
 form.addEventListener('submit', async (event) => {
   const button = form.querySelector('button[type="submit"]');
   button.disabled = true;
   statusEl.textContent = '';
   statusEl.className = 'form-status';
-  var submissionTime = new Date().getSeconds();  
+  var submissionTime = Date.now();  
   var elapsedTime = submissionTime - loadTime;
 
   event.preventDefault();
 
-  if (elapsedTime < 3) {
+  if (elapsedTime < 3000) {
     console.warn(`Form Submitted to quickly`)
     return (
       form.reset(),
