@@ -2,8 +2,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/inter-latin-400-normal.woff2") format("woff2"),
-       url("../fonts/inter-latin-400-normal.woff") format("woff");
+  src: url("../fonts/inter-latin-400-normal.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,8 +10,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"),
-       url("../fonts/inter-laitn-700-normal.woff") format("woff");
+  src: url("../fonts/inter-latin-700-normal.woff2") format("woff2");       
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -776,6 +774,14 @@ img {
 .contact-aside p {
   color: var(--ink-soft);
   margin: 0;
+}
+
+.form__alt {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* Footer */
